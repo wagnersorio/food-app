@@ -5,7 +5,7 @@
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index')  }}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('plans.index')  }}">Planos</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('plans.index')  }}" class="active">Planos</a></li>
     </ol>
     <h1>Planos <a href="{{ route('plans.create') }}" class="btn btn-dark">ADD</a></h1>
 @stop
@@ -26,7 +26,7 @@
                 <tr>
                     <th>Nome</th>
                     <th>Preço</th>
-                    <th style="width: 200px">Ações</th>
+                    <th style="width: 300px">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -35,8 +35,9 @@
                         <td>{{ $plan->name }}</td>
                         <td>R${{ number_format($plan->price, 2, ',','.') }}</td>
                         <td style="width: 10px">
+                            <a href="{{ route('details.plan.index',$plan->url) }}" class="btn btn-primary">Detalhes</a>
                             <a href="{{ route('plans.edit',$plan->url) }}" class="btn btn-info">Editar</a>
-                            <a href="{{ route('plans.show',$plan->url) }}" class="btn btn-warning">Detalhes</a>
+                            <a href="{{ route('plans.show',$plan->url) }}" class="btn btn-warning">Ver</a>
                         </td>
                     </tr>
                 @endforeach
