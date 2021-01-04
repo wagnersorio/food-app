@@ -16,7 +16,7 @@
 
             @include('admin.includes.alerts')
 
-            <form action="{{ route('permissions.destroy', $permission->id) }}" class="form" method="POST">
+            <form action="{{ route('profiles.destroy', $permission->id) }}" class="form" method="POST">
                 @csrf
                 @method('DELETE')
                     <button type="submit" class="btn btn-danger">Deletar</button>

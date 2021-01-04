@@ -4,16 +4,16 @@
 
 @section('content_header')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ route('permissions.index')  }}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('permissions.index')  }}" class="active">Permissões</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('profiles.index')  }}">Dashboard</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('profiles.index')  }}" class="active">Permissões</a></li>
     </ol>
-    <h1>Permissões <a href="{{ route('permissions.create') }}" class="btn btn-dark">ADD</a></h1>
+    <h1>Permissões <a href="{{ route('profiles.create') }}" class="btn btn-dark">ADD</a></h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <form action="{{ route('permissions.search') }}" method="post" class="form form-inline">
+            <form action="{{ route('profiles.search') }}" method="post" class="form form-inline">
                 @csrf
                 <input type="text" name="filter" id="filter" placeholder="filtro"
                        value="{{ $filters['filter'] ?? ''  }}"
@@ -34,9 +34,9 @@
                     <tr>
                         <td>{{ $permission->name }}</td>
                         <td style="width: 10px">
-                            <a href="{{ route('permissions.edit',$permission->id) }}" class="btn btn-info">Editar</a>
-                            <a href="{{ route('permissions.show',$permission->id) }}" class="btn btn-warning">Ver</a>
-                            <a href="{{ route('permissions.profiles',$permission->id) }}" class="btn btn-info"><i class="fas fa-address-book"></i></a>
+                            <a href="{{ route('profiles.edit',$permission->id) }}" class="btn btn-info">Editar</a>
+                            <a href="{{ route('profiles.show',$permission->id) }}" class="btn btn-warning">Ver</a>
+                            <a href="{{ route('profiles.profiles',$permission->id) }}" class="btn btn-info"><i class="fas fa-address-book"></i></a>
                         </td>
                     </tr>
                 @endforeach

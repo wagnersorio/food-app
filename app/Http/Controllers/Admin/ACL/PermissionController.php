@@ -24,8 +24,8 @@ class PermissionController extends Controller
     public function index()
     {
         $permissions = $this->repository->paginate();
-        return view('admin.pages.permissions.index', [
-            'permissions' => $permissions,
+        return view('admin.pages.profiles.index', [
+            'profiles' => $permissions,
         ]);
     }
 
@@ -36,7 +36,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.permissions.create');
+        return view('admin.pages.profiles.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class PermissionController extends Controller
     public function store(StoreUpdatePermissionRequest $request)
     {
         $this->repository->create($request->all());
-        return redirect()->route('permissions.index');
+        return redirect()->route('profiles.index');
     }
 
     /**
@@ -63,7 +63,7 @@ class PermissionController extends Controller
         if (!$permission) {
             return redirect()->back();
         }
-        return view('admin.pages.permissions.show', [
+        return view('admin.pages.profiles.show', [
             'permission' => $permission,
         ]);
     }
@@ -80,7 +80,7 @@ class PermissionController extends Controller
         if (!$permission) {
             return redirect()->back();
         }
-        return view('admin.pages.permissions.edit', [
+        return view('admin.pages.profiles.edit', [
             'permission' => $permission,
         ]);
 
@@ -100,7 +100,7 @@ class PermissionController extends Controller
             return redirect()->back();
         }
         $permission->update($request->all());
-        return redirect()->route('permissions.index');
+        return redirect()->route('profiles.index');
     }
 
     /**
@@ -116,7 +116,7 @@ class PermissionController extends Controller
             return redirect()->back();
         }
         $permission->delete();
-        return redirect()->route('permissions.index');
+        return redirect()->route('profiles.index');
     }
 
     public function search(Request $request)
@@ -131,8 +131,8 @@ class PermissionController extends Controller
                 }
             })
             ->paginate();
-        return view('admin.pages.permissions.index', [
-            'permissions' => $permissions,
+        return view('admin.pages.profiles.index', [
+            'profiles' => $permissions,
             'filters' => $filters,
         ]);
     }

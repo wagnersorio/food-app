@@ -15,7 +15,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <form action="{{ route('profiles.permissions.available', $profile->id) }}" method="post" class="form form-inline">
+            <form action="{{ route('profiles.profiles.available', $profile->id) }}" method="post" class="form form-inline">
                 @csrf
                 <input type="text" name="filter" id="filter" placeholder="filtro" value="{{ $filters['filter'] ?? ''  }}"
                        class="form-control">
@@ -31,7 +31,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <form action="{{ route('profiles.permissions.attach', $profile->id) }}" method="post">
+                <form action="{{ route('profiles.profiles.attach', $profile->id) }}" method="post">
                     @csrf
                     @foreach($permissions as $permission)
                         <tr>
