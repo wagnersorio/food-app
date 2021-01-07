@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')
     ->namespace('Admin')
+    ->middleware('auth')
     ->group(function () {
 
 
@@ -82,11 +83,16 @@ Route::prefix('admin')
          * Home Dashboard
          */
         Route::get('/', 'PlanController@index')->name('admin.index');
+
+
     });
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Site\SiteController@index')->name('site.home');
 
+/**
+ * Routes Auth
+ */
 Auth::routes();
+
+
